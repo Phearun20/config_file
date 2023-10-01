@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/miniproject
+          jwk-set-uri: http://localhost:8080/auth/realms/miniproject/protocol/openid-connect/certs
+  application:
+    name: keycloak-client
+server:
+  port: 8181
+keycloak:
+  realm: miniproject
+  resource: miniproject-client
+  auth-server-url: http://localhost:8080/auth/
+  credentials:
+    username: 'admin'
+    password: 'admin'
+    client-id: 'miniproject-client'
+    secret: 'O7hqCCjffvysnuzfnNqeJ1pXDfRGlkR8'
+    provider: secret
+logging:
+  level:
+    org.springframework.web: debug
